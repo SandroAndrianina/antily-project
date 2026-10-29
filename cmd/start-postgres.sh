@@ -1,0 +1,1 @@
+docker run -d --name pg_antily -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=app -p 5434:5432 postgres

@@ -1,0 +1,450 @@
+/* ============ Components ============ */
+
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.page-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+.btn:hover {
+  background: var(--primary-dark);
+  text-decoration: none;
+}
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(47, 111, 62, 0.35);
+  outline-offset: 1px;
+}
+.btn.secondary {
+  background: var(--surface);
+  color: var(--primary-dark);
+  border-color: var(--line);
+}
+.btn.secondary:hover {
+  background: var(--primary-soft);
+}
+.btn.danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: transparent;
+}
+.btn.danger:hover {
+  background: var(--danger-soft);
+}
+.btn.sm {
+  padding: 7px 12px;
+  font-size: 13px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+th {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--primary);
+  border-bottom: 2px solid var(--line);
+}
+tbody tr:hover {
+  background: rgba(47, 111, 62, 0.05);
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 480px;
+}
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+form input,
+form select {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+}
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.empty-state {
+  color: var(--muted);
+  font-size: 14px;
+  padding: 24px 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-success {
+  background: var(--primary);
+  color: #fff;
+}
+.badge-warning {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+.badge-neutral {
+  background: #e5e1d4;
+  color: var(--muted);
+}
+
+/* Master-detail block (edit form) */
+.detail-block {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.detail-block h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+/* ============ Layout (sidebar + top bar) ============ */
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 14px;
+  background: rgba(255, 255, 255, 0.35);
+  border-right: 1px solid var(--line);
+  overflow: hidden auto;
+}
+
+.brand {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  column-gap: 12px;
+  align-items: center;
+  padding: 0 8px 22px;
+  color: var(--primary);
+}
+.brand:hover {
+  text-decoration: none;
+}
+.brand-mark {
+  width: 58px;
+  height: 58px;
+  grid-row: span 2;
+  object-fit: contain;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand-top {
+  font-family: var(--font-title);
+  font-size: 15px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  filter: url(#rough);
+}
+.brand-name {
+  font-family: var(--font-title);
+  font-size: 34px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  filter: url(#paint);
+}
+.brand-tag {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--muted);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sidebar-nav a {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+.sidebar-nav a:hover {
+  background: var(--primary-soft);
+  text-decoration: none;
+}
+.sidebar-nav a.active {
+  color: #fff;
+}
+/* painted brush stroke behind the active item (rough edges via the #brush filter) */
+.sidebar-nav a.active::before {
+  content: '';
+  position: absolute;
+  inset: 1px 4px;
+  z-index: -1;
+  background: var(--primary);
+  border-radius: 4px;
+  filter: url(#brush);
+}
+.sidebar-nav a svg {
+  flex: none;
+}
+
+.sidebar-quote {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 8px;
+  padding: 0 14px 14px;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.05;
+  color: var(--primary);
+  transform: rotate(-4deg);
+}
+.sidebar-quote::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  width: 78%;
+  height: 12px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 12' preserveAspectRatio='none'><path d='M2 8 C30 2 70 11 110 5 S150 4 158 6' fill='none' stroke='%232f6f3e' stroke-width='3' stroke-linecap='round'/></svg>") no-repeat center / 100% 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  height: 72px;
+  padding: 0 32px;
+  border-bottom: 2px solid var(--primary);
+}
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+}
+.user-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.user-meta strong {
+  font-size: 14px;
+}
+.user-meta small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+  padding: 28px 32px 56px;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+    height: auto;
+    gap: 8px;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    padding-bottom: 8px;
+  }
+  .sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .sidebar-nav a {
+    white-space: nowrap;
+  }
+  .sidebar-quote {
+    display: none;
+  }
+  .topbar {
+    padding: 0 16px;
+  }
+  .main-content {
+    padding: 20px 16px 40px;
+  }
+}
+
+
+/* ============ Handwriting ============ */
+.page-title {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.page-sub {
+  margin: 0;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--primary);
+  transform: rotate(-1.5deg);
+  transform-origin: left center;
+}
+
+/* ============ Decorations: photo + pines ============ */
+/* To use a real photo: put it in public/ (for example scenery.jpg) and change the url() below.
+   The grayscale + sepia + hue-rotate chain turns any photo into a green-tinted black-and-white one. */
+.sidebar-scenery {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 300px;
+  z-index: 0;
+  pointer-events: none;
+  background: url('/scenery.svg') center bottom / cover no-repeat;
+  filter: grayscale(1) sepia(0.55) hue-rotate(60deg) saturate(1.1);
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  -webkit-mask-image: linear-gradient(to top, #000 55%, transparent);
+  mask-image: linear-gradient(to top, #000 55%, transparent);
+}
+.pines {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 240px;
+  height: 240px;
+  z-index: 0;
+  pointer-events: none;
+  background: url('/pines.svg') right bottom / contain no-repeat;
+  opacity: 0.38;
+}
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* ============ Page transitions ============ */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade-enter-active,
+  .fade-leave-active,
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+}
